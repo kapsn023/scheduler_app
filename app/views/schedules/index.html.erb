@@ -1,0 +1,33 @@
+<div id="schedule-container">
+<div id="schedule-grid">
+  <!-- Time column -->
+  <div class="time-column">
+    <div class="time-header"></div> <!-- Empty header for alignment -->
+    <% (0..23).each do |hour| %> 
+      <div class="time-slot"><%= "#{hour.to_s.rjust(2, '0')}:00" %></div>
+    <% end %>
+  </div>
+
+  <!-- Technician columns -->
+  <% @technicians.each do |technician| %>
+    <div class="technician-column">
+      <div class="technician-header"><%= technician.name %></div>
+      <% (0..23).each do |hour| %> 
+        <div class="time-slot">
+          <% technician.work_orders.each do |work_order| %>
+            <% if work_order.start_time.hour == hour %>
+              <div class="work-order" 
+                   style="height: <%= (work_order.duration / 60.0) * 100 %>%; 
+                          top: <%= (work_order.start_time.min / 60.0) * 100 %>%;">
+                <p><%= work_order.location.name %>, <%= work_order.location.city %></p>
+                <p><%= work_order.start_time.strftime('%H:%M') %></p>
+                <p>$<%= work_order.price %></p>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+</div>

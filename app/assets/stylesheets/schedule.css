@@ -1,0 +1,73 @@
+#schedule-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: max-content;
+}
+
+/* Grid container */
+#schedule-grid {
+  display: grid;
+  grid-template-columns: 100px repeat(auto-fill, 300px); /* First column for times, remaining for technicians */
+  grid-auto-flow: column;
+  gap: 1px; /* Space between columns */
+  background-color: #ffffff;
+}
+
+/* Time column */
+.time-column {
+  background-color: #ffffff;
+}
+  
+.time-header {
+  height: 50px; /* Align header with technician headers */
+  border-bottom: 3px solid #ffffff;
+}
+ 
+/* Technician columns */
+.technician-column {
+  background-color: #ffffff;
+  border: 1px solid #9e9e9e;
+  width: 300px;
+}
+  
+.technician-header {
+  position: sticky; /* Keeps headers on top as screen scrolls down */
+  top: 0;
+  z-index: 11;
+  border-bottom: 2px solid #9e9e9e;
+  height: 50px;
+  background-color: #cacaca;
+  text-align: center;
+  font-weight: bold;
+  line-height: 50px;
+}
+  
+/* Work order blocks */
+.work-order {
+  position: absolute; /* Allows precise placement within time slots */
+  left: 5px;
+  right: 5px;
+  background-color: #e6f7ff;
+  border: 1px solid #91d5ff;
+  padding: 0px;
+  font-size: 14px;
+  line-height: 0.5; /* Adjust text spacing for better fit */
+  z-index: 10;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensures content stays within the box */
+  text-wrap: nowrap;
+}
+  
+/* Ensure time slots accommodate absolute positioning */
+.time-slot {
+  position: relative;
+  height: 90px; /* Represents one hour */
+  border-bottom: 2px solid #9e9e9e;
+  text-align: center;
+  font-size: 14px;
+  line-height: 90px;
+  min-width: 150px;
+}
+  
