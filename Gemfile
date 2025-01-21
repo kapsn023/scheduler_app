@@ -62,5 +62,4 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem 'csv', '~> 3.0'
-
+gem "csv", "~> 3.0"
