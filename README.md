@@ -1,5 +1,10 @@
 # README
 
+**Note:** This repository has be worked on by two accounts. Both accounts are mine. 
+My Visual Studio Code is logged into one account and my web client is logged into 
+another. Had I realized this earlier, I would have switched to one account.
+
+
 ## Software Versions
 Ruby: 3.4.1
 
